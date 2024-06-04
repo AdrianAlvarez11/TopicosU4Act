@@ -15,7 +15,7 @@ namespace SistemaHorario.Models
         public int Id { get; set; }
 
         [NotNull, MaxLength(150)]
-        public string Descripcion { get; set; } = null!;
+        public string Descripcion { get; set; } = "";
 
         [NotNull]
         public int HoraInicio { get; set; }

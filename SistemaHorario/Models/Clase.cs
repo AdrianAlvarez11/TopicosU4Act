@@ -15,13 +15,13 @@ namespace SistemaHorario.Models
         public int Id { get; set; }
 
         [NotNull, MaxLength(50)]
-        public string Nombre { get; set; } = null!;
+        public string Nombre { get; set; } = "";
 
         [NotNull, MaxLength(100)]
-        public string Maestro { get; set; } = null!;
+        public string Maestro { get; set; } = "";
 
         [NotNull]
-        public string Aula { get; set; } = null!;
+        public string Aula { get; set; } = "";
 
         [NotNull]
         public int HoraInicio { get; set; } 

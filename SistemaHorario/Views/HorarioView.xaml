@@ -7,18 +7,38 @@
              x:DataType="viewmodels:HorarioViewmodel"   
              Shell.BackgroundColor="#006EC1"
              Shell.TitleColor="Black"
-             
+             x:Name="vista"
+            
              Title="Horario semanal">
+    
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+ Clase" Command="{Binding VerAgregarClaseCommand}"></ToolbarItem>
+        <ToolbarItem Text="+ Actividad" Command="{Binding VerAgregarActividadCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
 
 
-    <Grid RowDefinitions=".2*,*">
-        <Picker Margin="20" Grid.Row="0" BackgroundColor="#006EC1" FontSize="Large" ItemsSource="{Binding ValoresDias}" SelectedItem="{Binding DiaSeleccionado}"></Picker>
+    <Grid RowDefinitions=".1*,*">
+        <Picker Margin="10" Grid.Row="0" FontSize="Large" ItemsSource="{Binding ValoresDias}" SelectedItem="{Binding DiaSeleccionado}"></Picker>
 
         <CollectionView Margin="20" Grid.Row="1" ItemsSource="{Binding ActMostrables}">
             
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <views:ActividadMiniView></views:ActividadMiniView>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItem Text="Editar" BackgroundColor="LightGreen" Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerEditarCommand}"
+                                       CommandParameter="{Binding .}"></SwipeItem>
+                            <SwipeItem Text="Eliminar" BackgroundColor="PaleVioletRed" Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerEliminarCommand}"
+                                       CommandParameter="{Binding .}"></SwipeItem>
+                        </SwipeView.RightItems>
+
+                        <views:ActividadMiniView></views:ActividadMiniView>
+                        
+                    </SwipeView>
+                    
+                    
+                    
                 </DataTemplate>
             </CollectionView.ItemTemplate>
             

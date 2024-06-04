@@ -5,8 +5,20 @@
     
     <Border Padding="20" Stroke="Black" StrokeThickness="2">
         <Grid  ColumnDefinitions=".3*,*">
-            <Label VerticalOptions="Center" Grid.Column="0" Text="8:00 - 10:00"></Label>
-            <Label  VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Column="1" Text="Calculo vectorial &#x0a;Dora Lilia Guadiana Medina &#x0a; B-2"></Label>
+            <Border Stroke="Black" StrokeThickness="1" Grid.Column="0">
+                <Label VerticalOptions="Center"  >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding HoraInicio}"></Span>
+                            <Span Text=":00 - "></Span>
+                            <Span Text="{Binding HoraFinal}"></Span>
+                            <Span Text=":00"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Border>
+            
+            <Label  VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Column="1" Text="{Binding Detalles}"></Label>
         </Grid>
     </Border>
    

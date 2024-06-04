@@ -20,9 +20,9 @@ namespace SistemaHorario.Repositories
             conexion.CreateTable<Actividad>();
         }
 
-        public IEnumerable<Actividad> Get(Dias dia)
+        public IEnumerable<Actividad> GetByDay(Dias dia)
         {
-            return conexion.Table<Actividad>().Where(x=>x.Dia == dia).OrderBy(x=>x.HoraInicio);
+            return conexion.Table<Actividad>().Where(x=>x.Dia == dia);
         }
 
         public void Insert(Actividad act)

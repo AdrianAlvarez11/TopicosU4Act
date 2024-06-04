@@ -12,10 +12,33 @@
     <Shell.BindingContext>
         <viewmodels:HorarioViewmodel></viewmodels:HorarioViewmodel>
     </Shell.BindingContext>
-
+    
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate views:HorarioView}"
         Route="Horario" />
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:AgregarClaseView}"
+        Route="VerAggClase" />
+
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:AgregarActividadView}"
+        Route="VerAggAct" />
+
+    <ShellContent
+    Title="Home"
+    ContentTemplate="{DataTemplate views:EditarActividadView}"
+    Route="EditarActividad" />
+
+    <ShellContent
+    Title="Home"
+    ContentTemplate="{DataTemplate views:EditarClaseView}"
+    Route="EditarClase" />
+
+
 
 </Shell>

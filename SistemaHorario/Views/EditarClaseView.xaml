@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SistemaHorario.Views.AgregarClaseView"
+             x:Class="SistemaHorario.Views.EditarClaseView"
              xmlns:viewmodels="clr-namespace:SistemaHorario.Viewmodels"
-             Shell.NavBarIsVisible="False"
-             x:DataType="viewmodels:HorarioViewmodel"
-             Title="AgregarClaseView">
-
+Shell.NavBarIsVisible="False"
+x:DataType="viewmodels:HorarioViewmodel"
+             Title="EditarClaseView">
+    
     <Grid RowDefinitions="*,.1*" ColumnDefinitions=".5*,.5*">
         <ScrollView Grid.ColumnSpan="2" Grid.Row="0">
 
@@ -35,9 +35,7 @@
         </ScrollView>
 
 
-        <Button Command="{Binding AgregarClaseCommand}"  BackgroundColor="LightGreen" Grid.Row="2" Margin="10" Text="Agregar"></Button>
+        <Button Command="{Binding EditarClaseCommand}"  BackgroundColor="LightGreen" Grid.Row="2" Margin="10" Text="Guardar"></Button>
         <Button Command="{Binding CancelarCommand}"  Grid.Row="1" BackgroundColor="IndianRed" Grid.Column="1" Margin="10" Text="Cancelar"></Button>
     </Grid>
-
-
 </ContentPage>
