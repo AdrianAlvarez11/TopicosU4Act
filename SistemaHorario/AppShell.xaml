@@ -5,8 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:SistemaHorario"
     xmlns:views="clr-namespace:SistemaHorario.Views"
+    xmlns:viewmodels="clr-namespace:SistemaHorario.Viewmodels"
     Shell.FlyoutBehavior="Disabled"
     Title="SistemaHorario">
+
+    <Shell.BindingContext>
+        <viewmodels:HorarioViewmodel></viewmodels:HorarioViewmodel>
+    </Shell.BindingContext>
 
     <ShellContent
         Title="Home"

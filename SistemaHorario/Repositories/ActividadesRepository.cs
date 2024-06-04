@@ -25,5 +25,18 @@ namespace SistemaHorario.Repositories
             return conexion.Table<Actividad>().Where(x=>x.Dia == dia).OrderBy(x=>x.HoraInicio);
         }
 
+        public void Insert(Actividad act)
+        {
+            conexion.Insert(act);
+        }
+        public void Update(Actividad act) 
+        { 
+            conexion.Update(act); 
+        }
+        public void Delete(Actividad act) 
+        { 
+            conexion.Delete(act);
+        }
+
     }
 }
