@@ -2,11 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SistemaHorario.Views.EliminarClaseView"
+             xmlns:viewmodels="clr-namespace:SistemaHorario.Viewmodels"
+             x:DataType="viewmodels:HorarioViewmodel"
              Title="EliminarClaseView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    
+    <Grid RowDefinitions=".7*,.3*" ColumnDefinitions=".5*,.5*">
+        <Label VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="¿Estás seguro de que quieres eliminar la clase:"></Span>
+                    <Span TextColor="#006EC1" Text="{Binding Clase.Nombre}"></Span>
+                    <Span Text="?"></Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Button VerticalOptions="Center" Grid.Row="1" Grid.Column="0" BackgroundColor="LightGreen" Command="{Binding EliminarClaseCommand}" Text="Confirmar" ></Button>
+        <Button VerticalOptions="Center" Grid.Row="1" Grid.Column="1" BackgroundColor="PaleVioletRed"  Command="{Binding CancelarCommand}" Text="Cancelar" ></Button>
+    </Grid>
 </ContentPage>

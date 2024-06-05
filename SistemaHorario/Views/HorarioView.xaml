@@ -21,19 +21,19 @@
     <Grid RowDefinitions=".1*,*">
         <Picker Margin="10" Grid.Row="0" FontSize="Large" ItemsSource="{Binding ValoresDias}" SelectedItem="{Binding DiaSeleccionado}"></Picker>
 
-        <CollectionView Margin="20" Grid.Row="1" ItemsSource="{Binding ActMostrables}">
+        <CollectionView Margin="0,10,0,10" Grid.Row="1" ItemsSource="{Binding ActMostrables}">
             
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView>
                         <SwipeView.RightItems>
-                            <SwipeItem Text="Editar" BackgroundColor="LightGreen" Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerEditarCommand}"
-                                       CommandParameter="{Binding .}"></SwipeItem>
                             <SwipeItem Text="Eliminar" BackgroundColor="PaleVioletRed" Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerEliminarCommand}"
+                                       CommandParameter="{Binding .}"></SwipeItem>
+                            <SwipeItem Text="Editar" BackgroundColor="LightGreen" Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerEditarCommand}"
                                        CommandParameter="{Binding .}"></SwipeItem>
                         </SwipeView.RightItems>
 
-                        <views:ActividadMiniView></views:ActividadMiniView>
+                        <views:ActividadMiniView HeightRequest="130"></views:ActividadMiniView>
                         
                     </SwipeView>
                     

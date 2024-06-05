@@ -64,23 +64,58 @@ namespace SistemaHorario.Viewmodels
 
             HacerMostrable();
 
-
-
         }
 
-        private void EliminarClase(object obj)
+        private void EliminarClase()
         {
-            throw new NotImplementedException();
+            if(Clase!=null)
+            {
+                repoClases.Delete(Clase);
+                HacerMostrable();
+                Cancelar();
+
+            }
         }
 
-        private void EliminarActividad(object obj)
+        private void EliminarActividad()
         {
-            throw new NotImplementedException();
+            if (Actividad != null)
+            {
+                repoActividades.Delete(Actividad);
+                HacerMostrable();
+                Cancelar();
+            } 
         }
 
         private void VerEliminar(ActMostrable mostrable)
         {
-            throw new NotImplementedException();
+            Actividad = new();
+            Clase = new();
+
+            //verificar si el objeto mostrable era de tipo actividad o clase para borrarla en la BD
+
+            bool esActividad = repoActividades.GetByDay(DiaSeleccionado).Any(x => x.HoraInicio == mostrable.HoraInicio);
+
+            if (esActividad)
+            {
+                Actividad = (Actividad)repoActividades.GetByDay(DiaSeleccionado).Where(x => x.HoraInicio == mostrable.HoraInicio).First();
+            }
+            else
+            {
+                Clase = (Clase)repoClases.GetByDay(DiaSeleccionado).Where(x => x.HoraInicio == mostrable.HoraInicio).First();
+            }
+
+            Actualizar();
+
+            if (Actividad.Descripcion != "") //verificar cual de los dos se quedó vacío
+            {
+                Shell.Current.GoToAsync("//EliminarActividad");
+            }
+
+            if (Clase.Nombre != "") //verificar cual de los dos se quedó vacío
+            {
+                Shell.Current.GoToAsync("//EliminarClase");
+            }
         }
 
         private void EditarClase()
@@ -185,7 +220,7 @@ namespace SistemaHorario.Viewmodels
             Actividad = new();
             Clase = new();
 
-            //verificar si el item mostrable era de tipo actividad o clase para poder editarlo en la BD
+            //verificar si el objeto mostrable era de tipo actividad o clase para poder editarlo en la BD
 
             bool esActividad = repoActividades.GetByDay(DiaSeleccionado).Any(x => x.HoraInicio == mostrable.HoraInicio);
 

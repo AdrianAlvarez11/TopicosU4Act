@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SistemaHorario.Views.ActividadMiniView">
     
-    <Border Padding="20" Stroke="Black" StrokeThickness="2">
-        <Grid  ColumnDefinitions=".3*,*">
-            <Border Stroke="Black" StrokeThickness="1" Grid.Column="0">
-                <Label VerticalOptions="Center"  >
+    <Border Padding="15" Stroke="Black" StrokeThickness="2">
+        <Grid  ColumnDefinitions=".4*,*">
+            <ScrollView>
+                <Label Margin="10" VerticalOptions="Center"  >
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="{Binding HoraInicio}"></Span>
@@ -16,9 +16,11 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-            </Border>
+            </ScrollView>
+               
+         
             
-            <Label  VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Column="1" Text="{Binding Detalles}"></Label>
+            <Label Margin="10,0,0,0"  VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Column="1" Text="{Binding Detalles}"></Label>
         </Grid>
     </Border>
    

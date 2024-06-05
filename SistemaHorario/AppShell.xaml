@@ -39,6 +39,17 @@
     ContentTemplate="{DataTemplate views:EditarClaseView}"
     Route="EditarClase" />
 
+    <ShellContent
+    Title="Home"
+    ContentTemplate="{DataTemplate views:EliminarClaseView}"
+    Route="EliminarClase" />
+
+    <ShellContent
+    Title="Home"
+    ContentTemplate="{DataTemplate views:EliminarActividadView}"
+    Route="EliminarActividad" />
+
+
 
 
 </Shell>
