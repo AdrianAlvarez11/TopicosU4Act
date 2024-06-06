@@ -2,25 +2,29 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SistemaHorario.Views.ActividadMiniView">
-    
-    <Border Padding="15" Stroke="Black" StrokeThickness="2">
-        <Grid  ColumnDefinitions=".4*,*">
+
+    <Border Padding="15,0,10,0" Stroke="Black" StrokeThickness="2" BackgroundColor="White">
+        <Grid  ColumnDefinitions=".5*,*">
             <ScrollView>
-                <Label Margin="10" VerticalOptions="Center"  >
+                
+                 <Label Margin="10" VerticalOptions="Center" HorizontalOptions="Center">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="{Binding HoraInicio}"></Span>
-                            <Span Text=":00 - "></Span>
-                            <Span Text="{Binding HoraFinal}"></Span>
-                            <Span Text=":00"></Span>
+                            <Span FontAttributes="Bold" TextColor="#043263" Text="{Binding HoraInicio}"></Span>
+                            <Span FontAttributes="Bold" TextColor="#043263" Text=":00 - "></Span>
+                            <Span FontAttributes="Bold" TextColor="#043263" Text="{Binding HoraFinal}"></Span>
+                            <Span FontAttributes="Bold" TextColor="#043263" Text=":00"></Span>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
+
             </ScrollView>
-               
-         
-            
-            <Label Margin="10,0,0,0"  VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Column="1" Text="{Binding Detalles}"></Label>
+
+            <Border Grid.Column="1"  Margin="-5" Stroke="Black" StrokeThickness="1" >
+                
+               <Label Margin="5,0,5,0"  VerticalOptions="Center" HorizontalTextAlignment="Center"  Text="{Binding Detalles}"></Label>
+            </Border>
+
         </Grid>
     </Border>
    

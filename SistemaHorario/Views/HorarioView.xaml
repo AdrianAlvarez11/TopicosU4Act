@@ -5,40 +5,44 @@
              xmlns:viewmodels="clr-namespace:SistemaHorario.Viewmodels"
              xmlns:views="clr-namespace:SistemaHorario.Views"
              x:DataType="viewmodels:HorarioViewmodel"   
-             Shell.BackgroundColor="#006EC1"
-             Shell.TitleColor="Black"
+             BackgroundColor="WhiteSmoke"
+
              x:Name="vista"
-            
+             Shell.NavBarIsVisible="False"
              Title="Horario semanal">
-    
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+ Clase" Command="{Binding VerAgregarClaseCommand}"></ToolbarItem>
-        <ToolbarItem Text="+ Actividad" Command="{Binding VerAgregarActividadCommand}"></ToolbarItem>
-    </ContentPage.ToolbarItems>
+ 
 
 
-    <Grid RowDefinitions=".1*,*">
-        <Picker Margin="10" Grid.Row="0" FontSize="Large" ItemsSource="{Binding ValoresDias}" SelectedItem="{Binding DiaSeleccionado}"></Picker>
+    <Grid RowDefinitions=".2*,*" >
 
-        <CollectionView Margin="0,10,0,10" Grid.Row="1" ItemsSource="{Binding ActMostrables}">
+        <Border Background="#043263" Margin="-2">
+            <Grid Margin="5" ColumnDefinitions=".5*,.25*,.25*" RowDefinitions=".6*,.4*">
+                <Label  Margin="15,15,15,15" FontSize="35" TextColor="White" Text="HORARIO"></Label>
+                <Button Margin="5,15,5,15" Grid.Column="1" BackgroundColor="White" TextColor="Black" FontSize="15" Text="+ Clase" Command="{Binding VerAgregarClaseCommand}"></Button>
+                <Button Margin="5,15,5,15" Grid.Column="2"  BackgroundColor="White" TextColor="Black" FontSize="15" Text="+ Act." Command="{Binding VerAgregarActividadCommand}"></Button>
+
+                <Picker Background="Transparent" Grid.ColumnSpan="3" TextColor="White" HorizontalTextAlignment="Center" Grid.Row="1" FontSize="20" ItemsSource="{Binding ValoresDias}" SelectedItem="{Binding DiaSeleccionado}"></Picker>
+            </Grid>
+        </Border>
+        
+
+        <CollectionView  Grid.Row="1" ItemsSource="{Binding ActMostrables}">
             
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <SwipeView>
                         <SwipeView.RightItems>
-                            <SwipeItem Text="Eliminar" BackgroundColor="PaleVioletRed" Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerEliminarCommand}"
+                            <SwipeItem Text="Eliminar" BackgroundColor="IndianRed" Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerEliminarCommand}"
                                        CommandParameter="{Binding .}"></SwipeItem>
                             <SwipeItem Text="Editar" BackgroundColor="LightGreen" Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerEditarCommand}"
                                        CommandParameter="{Binding .}"></SwipeItem>
                         </SwipeView.RightItems>
 
-                        <views:ActividadMiniView HeightRequest="130"></views:ActividadMiniView>
+                        <views:ActividadMiniView HeightRequest="130" Margin="-2"></views:ActividadMiniView>
                         
                     </SwipeView>
-                    
-                    
-                    
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
             

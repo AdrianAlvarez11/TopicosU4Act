@@ -4,33 +4,44 @@
              x:Class="SistemaHorario.Views.EditarActividadView"
              xmlns:viewmodels="clr-namespace:SistemaHorario.Viewmodels"
 Shell.NavBarIsVisible="False"
+BackgroundColor="#043263"
 x:DataType="viewmodels:HorarioViewmodel"
              Title="EditarActividadView">
+
+    <ScrollView VerticalOptions="Center">
+        <VerticalStackLayout>
+            <Frame  CornerRadius="30" Background="White" Margin="10" >
+
+                <Grid RowDefinitions="auto,auto,auto,auto,auto,auto,auto" ColumnDefinitions=".4*,.6*">
+
+
+                    <Label HorizontalOptions="Start" VerticalOptions="Center"  Margin="10,15" Grid.RowSpan="2" FontSize="20" FontAttributes="Bold">Descripción</Label>
+                    <Label  HorizontalOptions="Start" VerticalOptions="Center"  Margin="10,15" Grid.Row="2" FontSize="20" FontAttributes="Bold">Hora Inicio</Label>
+                    <Label  HorizontalOptions="Start" VerticalOptions="Center"  Margin="10,15" Grid.Row="3" FontSize="20" FontAttributes="Bold">Hora Final</Label>
+                    <Label  HorizontalOptions="Start" VerticalOptions="Center"  Margin="10,15" Grid.Row="4" FontSize="20" FontAttributes="Bold">Día</Label>
+
+
+                    <Editor HeightRequest="100" FontAttributes="Bold" Margin="10" FontSize="16" VerticalOptions="Center"  Grid.RowSpan="2" Grid.Column="1" Text="{Binding Actividad.Descripcion}"></Editor>
+                    <Picker  FontAttributes="Bold" Margin="10" FontSize="22" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="1" ItemsSource="{Binding ValoresHoras}" SelectedItem="{Binding Actividad.HoraInicio}"></Picker>
+                    <Picker  FontAttributes="Bold" Margin="10" FontSize="22" HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding ValoresHoras}" SelectedItem="{Binding Actividad.HoraFinal}"></Picker>
+                    <Picker  FontAttributes="Bold" Margin="10" FontSize="22" HorizontalTextAlignment="Center" Grid.Row="4" Grid.Column="1" ItemsSource="{Binding ValoresDias}" SelectedItem="{Binding Actividad.Dia}"></Picker>
+
+                    <Label FontSize="12" Grid.ColumnSpan="2" TextColor="Red" Text="{Binding Error}" Grid.Row="5"></Label>
+
+                    <Grid Grid.Row="6" Grid.ColumnSpan="2" ColumnDefinitions=".5*,.5*">
+                        <Button Command="{Binding EditarActividadCommand}" BorderColor="Green" BorderWidth="2" Background="White" TextColor="Green"
+                         Margin="10"   Text="Guardar"></Button>
+
+                        <Button Command="{Binding CancelarCommand}" CommandParameter="MainPage" BorderColor="DarkRed" BorderWidth="2" Background="White" TextColor="DarkRed"
+                          Margin="10" Grid.Column="1"  Text="Cancelar"></Button>
+
+                    </Grid>
+
+
+                </Grid>
+
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
     
-    <Grid RowDefinitions="*,.1*" ColumnDefinitions=".5*,.5*">
-        <ScrollView Grid.ColumnSpan="2" Grid.Row="0">
-
-            <VerticalStackLayout>
-                <Label HorizontalTextAlignment="Center"  Margin="20,10,20,0" FontSize="20" FontAttributes="Bold" TextColor="#006EC1" Text="Descripcion"></Label>
-                <Entry Margin="15,5,15,5" TextColor="Black" Background="LightGray" Text="{Binding Actividad.Descripcion}"></Entry>
-
-                <Label   HorizontalTextAlignment="Center"  Margin="20,10,20,0" FontSize="20" FontAttributes="Bold" TextColor="#006EC1" Text="Hora Inicio"></Label>
-                <Entry  Margin="15,5,15,5" TextColor="Black" Background="LightGray" Keyboard="Numeric" Text="{Binding Actividad.HoraInicio}"></Entry>
-
-                <Label  HorizontalTextAlignment="Center"  Margin="20,10,20,0" FontSize="20" FontAttributes="Bold" TextColor="#006EC1" Text="Hora Final"></Label>
-                <Entry  Margin="15,5,15,5" TextColor="Black" Background="LightGray" Keyboard="Numeric" Text="{Binding Actividad.HoraFinal}"></Entry>
-
-                <Label  HorizontalTextAlignment="Center"  Margin="20,10,20,0" FontSize="20" FontAttributes="Bold" TextColor="#006EC1" Text="Dia"></Label>
-                <Picker ItemsSource="{Binding ValoresDias}" SelectedItem="{Binding Actividad.Dia}"></Picker>
-
-                <Label  HorizontalTextAlignment="Center" Margin="15,5,15,5"  FontSize="20" FontAttributes="Bold" TextColor="Red" Text="{Binding Error}"></Label>
-
-            </VerticalStackLayout>
-        </ScrollView>
-
-
-        <Button Command="{Binding EditarActividadCommand }"  BackgroundColor="LightGreen" Grid.Row="2" Margin="10" Text="Guardar"></Button>
-        <Button Command="{Binding CancelarCommand}"  Grid.Row="1" BackgroundColor="IndianRed" Grid.Column="1" Margin="10" Text="Cancelar"></Button>
-    </Grid>
-
 </ContentPage>

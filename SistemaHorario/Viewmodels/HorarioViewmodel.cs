@@ -21,6 +21,7 @@ namespace SistemaHorario.Viewmodels
         public ActividadesRepository repoActividades { get; set; } = new();
         public ClasesRepository repoClases { get; set; } = new();
         public IEnumerable<Dias> ValoresDias => Enum.GetValues(typeof(Dias)).Cast<Dias>();
+        public IEnumerable<int> ValoresHoras => Enumerable.Range(0, 25).ToList();
         public Dias DiaSeleccionado
         {
             get { return diaSeleccionado; }
