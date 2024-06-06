@@ -146,12 +146,14 @@ namespace SistemaHorario.Viewmodels
                 }
 
                 bool ClaseEmpalmada = repoClases.GetByDay(Clase.Dia).Any(c =>
-                 ((Clase.HoraInicio >= c.HoraInicio && Clase.HoraInicio < c.HoraFinal) ||
-                 (Clase.HoraFinal > c.HoraInicio && Clase.HoraFinal <= c.HoraFinal)) && c.Id!=Clase.Id);
+                 (Clase.HoraInicio >= c.HoraInicio && Clase.HoraInicio < c.HoraFinal) ||
+                 (Clase.HoraFinal > c.HoraInicio && Clase.HoraFinal <= c.HoraFinal) ||
+                 (Clase.HoraInicio < c.HoraInicio && Clase.HoraFinal > c.HoraFinal) && c.Id!= Clase.Id);
 
                 bool ActEmpalmada = repoActividades.GetByDay(Clase.Dia).Any(a =>
-                 ((Clase.HoraInicio >= a.HoraInicio && Clase.HoraInicio < a.HoraFinal) ||
-                 (Clase.HoraFinal > a.HoraInicio && Clase.HoraFinal <= a.HoraFinal)) && a.Id != Clase.Id);
+                 (Clase.HoraInicio >= a.HoraInicio && Clase.HoraInicio < a.HoraFinal) ||
+                 (Clase.HoraFinal > a.HoraInicio && Clase.HoraFinal <= a.HoraFinal) ||
+                 (Clase.HoraInicio < a.HoraInicio && Clase.HoraFinal > a.HoraFinal) && a.Id != Clase.Id);
 
                 if (ClaseEmpalmada || ActEmpalmada)
                 {
@@ -191,12 +193,14 @@ namespace SistemaHorario.Viewmodels
                 }
 
                 bool ClaseEmpalmada = repoClases.GetByDay(Actividad.Dia).Any(c =>
-                 ((Actividad.HoraInicio >= c.HoraInicio && Actividad.HoraInicio < c.HoraFinal) ||
-                 (Actividad.HoraFinal > c.HoraInicio && Actividad.HoraFinal <= c.HoraFinal)) && c.Id != Actividad.Id);
+                (Actividad.HoraInicio >= c.HoraInicio && Actividad.HoraInicio < c.HoraFinal) ||
+                (Actividad.HoraFinal > c.HoraInicio && Actividad.HoraFinal <= c.HoraFinal) ||
+                (Actividad.HoraInicio < c.HoraInicio && Actividad.HoraFinal > c.HoraFinal) && c.Id!= Actividad.Id);
 
                 bool ActEmpalmada = repoActividades.GetByDay(Actividad.Dia).Any(a =>
-                 ((Actividad.HoraInicio >= a.HoraInicio && Actividad.HoraInicio < a.HoraFinal) ||
-                 (Actividad.HoraFinal > a.HoraInicio && Actividad.HoraFinal <= a.HoraFinal)) && a.Id != Actividad.Id);
+                 (Actividad.HoraInicio >= a.HoraInicio && Actividad.HoraInicio < a.HoraFinal) ||
+                 (Actividad.HoraFinal > a.HoraInicio && Actividad.HoraFinal <= a.HoraFinal) ||
+                 (Actividad.HoraInicio < a.HoraInicio && Actividad.HoraFinal > a.HoraFinal) && a.Id != Actividad.Id);
 
                 if (ClaseEmpalmada || ActEmpalmada)
                 {
@@ -283,11 +287,13 @@ namespace SistemaHorario.Viewmodels
 
                 bool ClaseEmpalmada = repoClases.GetByDay(Clase.Dia).Any(c =>
                  (Clase.HoraInicio >= c.HoraInicio && Clase.HoraInicio < c.HoraFinal) ||
-                 (Clase.HoraFinal > c.HoraInicio && Clase.HoraFinal <= c.HoraFinal));
+                 (Clase.HoraFinal > c.HoraInicio && Clase.HoraFinal <= c.HoraFinal) || 
+                 (Clase.HoraInicio< c.HoraInicio && Clase.HoraFinal>c.HoraFinal));
 
                 bool ActEmpalmada = repoActividades.GetByDay(Clase.Dia).Any(a =>
                  (Clase.HoraInicio >= a.HoraInicio && Clase.HoraInicio < a.HoraFinal) ||
-                 (Clase.HoraFinal > a.HoraInicio && Clase.HoraFinal <= a.HoraFinal));
+                 (Clase.HoraFinal > a.HoraInicio && Clase.HoraFinal <= a.HoraFinal) ||
+                 (Clase.HoraInicio < a.HoraInicio && Clase.HoraFinal > a.HoraFinal));
 
                 if (ClaseEmpalmada || ActEmpalmada)
                 {
@@ -368,11 +374,13 @@ namespace SistemaHorario.Viewmodels
 
                 bool ClaseEmpalmada = repoClases.GetByDay(Actividad.Dia).Any(c =>
                  (Actividad.HoraInicio >= c.HoraInicio && Actividad.HoraInicio < c.HoraFinal) ||
-                 (Actividad.HoraFinal > c.HoraInicio && Actividad.HoraFinal <= c.HoraFinal));
+                 (Actividad.HoraFinal > c.HoraInicio && Actividad.HoraFinal <= c.HoraFinal) ||
+                 (Actividad.HoraInicio < c.HoraInicio && Actividad.HoraFinal > c.HoraFinal));
 
                 bool ActEmpalmada = repoActividades.GetByDay(Actividad.Dia).Any(a =>
                  (Actividad.HoraInicio >= a.HoraInicio && Actividad.HoraInicio < a.HoraFinal) ||
-                 (Actividad.HoraFinal > a.HoraInicio && Actividad.HoraFinal <= a.HoraFinal));
+                 (Actividad.HoraFinal > a.HoraInicio && Actividad.HoraFinal <= a.HoraFinal) ||
+                 (Actividad.HoraInicio < a.HoraInicio && Actividad.HoraFinal > a.HoraFinal));
 
                 if (ClaseEmpalmada || ActEmpalmada)
                 {

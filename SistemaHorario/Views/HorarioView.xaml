@@ -20,7 +20,7 @@
             <Grid Margin="5" ColumnDefinitions=".5*,.25*,.25*" RowDefinitions=".6*,.4*">
                 <Label  Margin="15,15,15,15" FontSize="35" TextColor="White" Text="HORARIO"></Label>
                 <Button Margin="5,15,5,15" Grid.Column="1" BackgroundColor="White" TextColor="Black" FontSize="15" Text="+ Clase" Command="{Binding VerAgregarClaseCommand}"></Button>
-                <Button Margin="5,15,5,15" Grid.Column="2"  BackgroundColor="White" TextColor="Black" FontSize="15" Text="+ Act." Command="{Binding VerAgregarActividadCommand}"></Button>
+                <Button Margin="5,15,5,15" Grid.Column="2"  BackgroundColor="White" TextColor="Black" FontSize="15" Text="+ Act" Command="{Binding VerAgregarActividadCommand}"></Button>
 
                 <Picker Background="Transparent" Grid.ColumnSpan="3" TextColor="White" HorizontalTextAlignment="Center" Grid.Row="1" FontSize="20" ItemsSource="{Binding ValoresDias}" SelectedItem="{Binding DiaSeleccionado}"></Picker>
             </Grid>
@@ -33,9 +33,9 @@
                 <DataTemplate>
                     <SwipeView>
                         <SwipeView.RightItems>
-                            <SwipeItem Text="Eliminar" BackgroundColor="IndianRed" Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerEliminarCommand}"
+                            <SwipeItem IconImageSource="logoeliminar.png" BackgroundColor="DarkRed" Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerEliminarCommand}"
                                        CommandParameter="{Binding .}"></SwipeItem>
-                            <SwipeItem Text="Editar" BackgroundColor="LightGreen" Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerEditarCommand}"
+                            <SwipeItem  IconImageSource="iconoeditar.png" BackgroundColor="#043263" Command="{Binding Source={x:Reference vista}, Path=BindingContext.VerEditarCommand}"
                                        CommandParameter="{Binding .}"></SwipeItem>
                         </SwipeView.RightItems>
 

@@ -29,7 +29,7 @@ x:DataType="viewmodels:HorarioViewmodel"
                     <Label FontSize="12" Grid.ColumnSpan="2" TextColor="Red" Text="{Binding Error}" Grid.Row="5"></Label>
 
                     <Grid Grid.Row="6" Grid.ColumnSpan="2" ColumnDefinitions=".5*,.5*">
-                        <Button Command="{Binding EditarActividadCommand}" BorderColor="Green" BorderWidth="2" Background="White" TextColor="Green"
+                        <Button Command="{Binding EditarActividadCommand}" BorderColor="#043263" BorderWidth="2" Background="White" TextColor="#043263"
                          Margin="10"   Text="Guardar"></Button>
 
                         <Button Command="{Binding CancelarCommand}" CommandParameter="MainPage" BorderColor="DarkRed" BorderWidth="2" Background="White" TextColor="DarkRed"

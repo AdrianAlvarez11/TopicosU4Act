@@ -17,7 +17,7 @@ BackgroundColor="#043263"
                     <Label Text="¿Estás seguro de eliminar la clase seleccionada?" FontSize="30" VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">
                     </Label>
 
-                    <Button VerticalOptions="Center" Grid.Row="1" Grid.Column="0" BorderColor="Green" BorderWidth="2" Background="White" TextColor="Green"
+                    <Button VerticalOptions="Center" Grid.Row="1" Grid.Column="0" BorderColor="#043263" BorderWidth="2" Background="White" TextColor="#043263"
                          Margin="10" Command="{Binding EliminarClaseCommand}" Text="Confirmar" ></Button>
                     <Button VerticalOptions="Center" Grid.Row="1" Grid.Column="1" BorderColor="DarkRed" BorderWidth="2" Background="White" TextColor="DarkRed"
                           Margin="10"  Command="{Binding CancelarCommand}" Text="Cancelar" ></Button>
